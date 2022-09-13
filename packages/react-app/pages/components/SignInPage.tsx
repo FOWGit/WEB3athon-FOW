@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
 
 function SignInPage() {
+
+  const [email, setEmail] = useState('')
+  const [passwd, setPasswd] = useState('')
+
+  const Continue = async () => {
+    try {
+      console.log(email)
+      console.log(passwd)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const styles = {
     page: `w-screen h-screen flex flex-col justify-around items-center`,
@@ -36,19 +48,21 @@ function SignInPage() {
       </div>
       <div className={styles.middle}>
         <div className={styles.emailBox}>
-          <input type="email" placeholder='Your email' className={styles.email} />
+          <input type="email" placeholder='Your email' className={styles.email} onChange={(e) => setEmail(e.target.value)} value={email} />
         </div>
         <div className={styles.passwordBox}>
-          <input type="password" placeholder='Password' className={styles.password} />
+          <input type="password" placeholder='Password' className={styles.password} onChange={(e) => setPasswd(e.target.value)} value={passwd} />
         </div>
         <Link href='/components/FOW/Signup'>
           <div className={styles.signupBox}>
             <span className={styles.signup}>Sign up</span>
           </div>
         </Link>
-        <div className={styles.buttonBox}>
-          <Button variant="contained" className={styles.button}>Continue</Button>
-        </div>
+        <Link href="/components/FOW/Additional">
+          <div className={styles.buttonBox}>
+            <Button variant="contained" className={styles.button} onClick={Continue}>Continue</Button>
+          </div>
+        </Link>
       </div>
       <div className={styles.bottom}>
         <div className={styles.hr}>
