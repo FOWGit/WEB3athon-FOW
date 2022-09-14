@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
+import Link from 'next/link';
 
 function ProducerPage() {
 
@@ -47,19 +48,25 @@ function ProducerPage() {
       </div>
       <div className={styles.bellowNav}>
         <div className={styles.opt}>
-          <Button variant="outlined" className={styles.btn}>
-            <span className={styles.btn_txt}>Home Delivery</span>
-          </Button>
+          <Link href="/components/FOW/ProducerPage">  
+            <Button variant="outlined" className={styles.btn}>
+              <span className={styles.btn_txt}>Home Delivery</span>
+            </Button>
+          </Link>
         </div>
         <div className={styles.opt}>
-          <Button variant="outlined" className={styles.btn}>
-            <span className={styles.btn_txt}>Take Away</span>
-          </Button>
+          <Link href="/components/FOW/ProducerPage">
+            <Button variant="outlined" className={styles.btn}>
+              <span className={styles.btn_txt}>Take Away</span>
+            </Button>
+          </Link>
         </div>
         <div className={styles.opt}>
-          <Button variant="outlined" className={styles.btn}>
-            <span className={styles.btn_txt}>Curbside Pick up</span>
-          </Button>
+          <Link href="/components/FOW/ProducerPage">
+            <Button variant="outlined" className={styles.btn}>
+              <span className={styles.btn_txt}>Curbside Pick up</span>
+            </Button>
+          </Link>
         </div>
       </div>
       <div className={styles.mid}>
@@ -84,45 +91,51 @@ function ProducerPage() {
           </div>
         </div>
       </div>
-      <div className={styles.farm}>
+      <Link href="/components/FOW/Farm/John Doe Farm">
+        <div className={styles.farm}>
+          <div className="">
+            <div className={styles.round_bg}>
+              <div className={styles.round}></div>
+            </div>
+          </div>
+          <div className={styles.left}>
+            <span className="font-semibold text-slate-700">John Doe Farm</span>
+            <span className="text-xs font-semibold text-slate-400">Meat & produce</span>
+            <span className="text-sm font-semibold text-slate-400">1223 Baker Street, Somewhere, CA 12345</span>
+            <span className="text-sm font-semibold text-green-500">Order Online</span>
+          </div>
+        </div>
+      </Link>
+      <Link href="/components/FOW/Farm/Web3.0 Farm">
+        <div className={styles.farm}>
+          <div className="">
+            <div className={styles.round_bg}>
+              <div className={styles.round}></div>
+            </div>
+          </div>
+          <div className={styles.left}>
+            <span className="font-semibold text-slate-700">Web3.0 Farm</span>
+            <span className="text-xs font-semibold text-slate-400">Meat & produce</span>
+            <span className="text-sm font-semibold text-slate-400">1255 Baker Street, Somewhere, CA 54321</span>
+            <span className="text-sm font-semibold text-green-500">Order Online</span>
+          </div>
+        </div>
+      </Link>
+      <Link href="/components/FOW/Farm/Farmtopia">
+        <div className={styles.farm}>
         <div className="">
-          <div className={styles.round_bg}>
-            <div className={styles.round}></div>
+            <div className={styles.round_bg}>
+              <div className={styles.round}></div>
+            </div>
+          </div>
+          <div className={styles.left}>
+            <span className="font-semibold text-slate-700">Farmtopia</span>
+            <span className="text-xs font-semibold text-slate-400">Meat & produce</span>
+            <span className="text-sm font-semibold text-slate-400">2155 Baking Street, Somewhere, CA 67890</span>
+            <span className="text-sm font-semibold text-green-500">Order Online</span>
           </div>
         </div>
-        <div className={styles.left}>
-          <span className="font-semibold text-slate-700">John Doe Farm</span>
-          <span className="text-xs font-semibold text-slate-400">Meat</span>
-          <span className="text-sm font-semibold text-slate-400">1223 Baker Street, Somewhere, CA 12345</span>
-          <span className="text-sm font-semibold text-green-500">Order Online</span>
-        </div>
-      </div>
-      <div className={styles.farm}>
-      <div className="">
-          <div className={styles.round_bg}>
-            <div className={styles.round}></div>
-          </div>
-        </div>
-        <div className={styles.left}>
-          <span className="font-semibold text-slate-700">John Doe Farm</span>
-          <span className="text-xs font-semibold text-slate-400">Produce</span>
-          <span className="text-sm font-semibold text-slate-400">1255 Baker Street, Somewhere, CA 54321</span>
-          <span className="text-sm font-semibold text-green-500">Order Online</span>
-        </div>
-      </div>
-      <div className={styles.farm}>
-      <div className="">
-          <div className={styles.round_bg}>
-            <div className={styles.round}></div>
-          </div>
-        </div>
-        <div className={styles.left}>
-          <span className="font-semibold text-slate-700">Farmtopia</span>
-          <span className="text-xs font-semibold text-slate-400">Meat & produce</span>
-          <span className="text-sm font-semibold text-slate-400">2155 Baking Street, Somewhere, CA 67890</span>
-          <span className="text-sm font-semibold text-green-500">Order Online</span>
-        </div>
-      </div>
+      </Link>
     </div>
   )
 }
