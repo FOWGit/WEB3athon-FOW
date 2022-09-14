@@ -27,7 +27,7 @@ function Crypto() {
               <div className="border-4 w-10 h-10"></div>
             </div>
             <div className="w-5/12 flex justify-between items-center">
-              <img src="/images/apple-logo.png" className='w-10 h-10'/>
+              <img src="/images/celo-logo.png" className='w-10 h-10'/>
               <div className={styles.smallBox}></div>
             </div>
             <div className="w-5/12 flex justify-between items-center">
