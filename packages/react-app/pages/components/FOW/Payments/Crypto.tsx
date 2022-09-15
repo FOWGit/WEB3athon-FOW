@@ -13,7 +13,7 @@ function Crypto() {
   const data = router.query
 
   const celoAmount = Number(data.finalAmount) * 1.25
-
+  
   const styles = {
     page: `w-screen h-screen flex flex-col justify-between items-center`,
     body: `w-full h-full flex flex-col justify-between items-center max-w-screen-sm`,
@@ -21,9 +21,9 @@ function Crypto() {
     priority: `w-11/12 h-1/5 flex flex-col justify-around items-center bg-slate-300/[.9] shadow-xl border-white-900/75 rounded-md`,
     btn: `w-11/12 h-1/6`,
     addr: `w-10/12 h-10 bg-white rounded-xl p-2 flex justify-between items-center`,
-    smallBox: `bg-white rounded-md w-8/12 h-10 ml-1`,
+    smallBox: `bg-white rounded-md w-11/12 h-10 ml-1 text-xs`,
     box: `rounded-xl w-20 h-20 bg-white`,
-    boxHold: `w-8/12 flex justify-between items-center`
+    boxHold: `w-8/12 flex justify-between items-center max-w-11/12`
   }
 
   return (
