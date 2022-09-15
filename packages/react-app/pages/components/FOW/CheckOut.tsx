@@ -6,8 +6,22 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Button from '@mui/material/Button';
 
+import { useRouter } from 'next/router'
+
 
 function CheckOut() {
+
+  const router = useRouter()
+
+  const data = router.query
+
+  const totalCost = Number(data.count1)*2 + Number(data.count2)*3 + Number(data.count3)*5
+  const taxAmount = (totalCost * 2) /100
+  const finalAmount = totalCost + taxAmount
+
+  const sendData = {
+    finalAmount
+  }
 
   const styles = {
     page: `w-screen h-screen flex flex-col justify-between items-center`,
@@ -64,9 +78,9 @@ function CheckOut() {
           <div className="w-24 h-24 rounded-xl bg-white mt-5"></div>
         </div>
         <div className={styles.mid}>
-          <span className='font-semibold'>Beef Minced</span>
-          <span className='font-semibold'>Beef NY Strip</span>
-          <span className='font-semibold'>Beef with bones</span>
+          <span className='font-semibold'>Beef Minced - {data.count1}</span>
+          <span className='font-semibold'>Beef NY Strip - {data.count2}</span>
+          <span className='font-semibold'>Beef with bones - {data.count3}</span>
           <span className='font-semibold text-neutral-700 text-xs'>Product Total</span>
           <span className='font-semibold text-neutral-700 text-xs'>Tax</span>
           <span className='font-semibold text-neutral-700 text-xs'>Subtotal</span>
@@ -75,20 +89,24 @@ function CheckOut() {
           <div className="w-full h-1/2 flex justify-center items-center">
             <div className={styles.count}>
               <RemoveIcon color='primary' />
-              <span>0</span>
+              <span>{data.totalCount}</span>
               <AddIcon color='primary' />
             </div>
           </div>
           <div className="w-full h-1/2 flex flex-col justify-around items-start mt-0.5">
-            <span className='font-semibold text-neutral-700 text-xs mt-4'>1$</span>
-            <span className='font-semibold text-neutral-700 text-xs'>1$</span>
-            <span className='font-semibold text-neutral-700 text-xs'>1$</span>
+            <span className='font-semibold text-neutral-700 text-xs mt-4'>{totalCost}$</span>
+            <span className='font-semibold text-neutral-700 text-xs'>2% = {taxAmount}</span>
+            <span className='font-semibold text-neutral-700 text-xs'>{finalAmount}$</span>
           </div>
         </div>
       </div>
-      <Link href="/components/FOW/Payments/Crypto">
+      <Link 
+        href={{
+          pathname: "/components/FOW/Payments/Crypto",
+          query: sendData
+        }}>
         <div className={styles.btn}>
-          <Button variant="contained" className='p-2 w-11/12'>Proceed to pay</Button>
+          <Button variant="contained" className='p-2 w-11/12' onClick={() => console.log("data: ", data)}>Proceed to pay</Button>
         </div>
       </Link>
     </div>
