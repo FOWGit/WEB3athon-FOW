@@ -68,7 +68,7 @@ function name() {
             <div className={styles.box}></div>
             <div className="flex flex-col h-full justify-around items-start ml-1">
               <span className='text-sm font-semibold'>Beef with bones</span>
-              <span className='font-semibold text-gray-500 text-xs'>2 $$</span>
+              <span className='font-semibold text-gray-500 text-xs'>0.12 $$</span>
               <span className='font-semibold text-gray-500 text-xs'>Lbs</span>
             </div>
           </div>
@@ -83,7 +83,7 @@ function name() {
           <div className={styles.box}></div>
             <div className="flex flex-col h-full justify-around items-start ml-1">
               <span className='text-sm font-semibold'>Beef NY Strip</span>
-              <span className='font-semibold text-gray-500 text-xs'>3 $$</span>
+              <span className='font-semibold text-gray-500 text-xs'>0.34 $$</span>
               <span className='font-semibold text-gray-500 text-xs'>Lbs</span>
             </div>
           </div>
@@ -98,7 +98,7 @@ function name() {
           <div className={styles.box}></div>
             <div className="flex flex-col h-full justify-around items-start ml-1">
               <span className='text-sm font-semibold'>Beef Minced</span>
-              <span className='font-semibold text-gray-500 text-xs'>5 $$</span>
+              <span className='font-semibold text-gray-500 text-xs'>0.56 $$</span>
               <span className='font-semibold text-gray-500 text-xs'>Lbs</span>
             </div>
           </div>
