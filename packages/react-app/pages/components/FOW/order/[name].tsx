@@ -15,8 +15,14 @@ function name() {
   const [count2, setCount2] = useState(0)
   const [count3, setCount3] = useState(0)
 
-  let totalCount = 0
-  totalCount = count1+count2+count3
+  let totalCount = count1+count2+count3
+
+  const data = {
+    totalCount,
+    count1,
+    count2,
+    count3,
+  }
 
   const router = useRouter()
 
@@ -104,7 +110,11 @@ function name() {
         </div>
       </div>
       <div className={styles.bellow}>
-        <Link href="/components/FOW/CheckOut">
+        <Link 
+        href={{
+          pathname: "/components/FOW/CheckOut",
+          query: data,
+          }}>
           <Button variant="contained" className={styles.btn}>
             <p className='text-xs'>Checkout ({totalCount})</p>
           </Button>
@@ -113,7 +123,6 @@ function name() {
           <span className='text-xs'>Minimum Order $$</span>
         </div>
       </div>
-      
     </div>
   )
 }
