@@ -15,7 +15,7 @@ function CheckOut() {
 
   const data = router.query
 
-  const totalCost = Number(data.count1)*2 + Number(data.count2)*3 + Number(data.count3)*5
+  const totalCost = Number(data.count1)*0.12 + Number(data.count2)*0.34 + Number(data.count3)*0.56
   const taxAmount = (totalCost * 2) /100
   const finalAmount = totalCost + taxAmount
 
