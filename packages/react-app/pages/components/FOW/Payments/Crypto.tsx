@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import PaymentHead from '../PaymentHead'
 import Button from '@mui/material/Button';
 import { ethers } from "ethers";
-import ABI from '../../../utils/FOW.json';
+// import ABI from '../../../utils/FOW.json';
+import ABI from '../../../../../hardhat/artifacts/contracts/FOW.sol/FOW.json';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
