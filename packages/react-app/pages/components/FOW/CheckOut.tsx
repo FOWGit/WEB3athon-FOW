@@ -16,8 +16,13 @@ function CheckOut() {
   const data = router.query
 
   const totalCost = Number(data.count1)*0.12 + Number(data.count2)*0.34 + Number(data.count3)*0.56
+  const TotalCost = Math.round((totalCost + Number.EPSILON) * 100)/100
+
   const taxAmount = (totalCost * 2) /100
+  const TaxAmount = Math.round((taxAmount + Number.EPSILON) * 100)/100
+
   const finalAmount = totalCost + taxAmount
+  const FinalAmount = Math.round((finalAmount + Number.EPSILON) * 100)/100
 
   const sendData = {
     finalAmount
@@ -75,15 +80,19 @@ function CheckOut() {
       </div>
       <div className={styles.item}>
         <div className={styles.left}>
-          <div className="w-24 h-24 rounded-xl bg-white mt-5"></div>
+          <div className="w-24 h-24 rounded-xl bg-transparent mt-5 flex justify-center items-center">
+            <img src="/images/shop.png" className='w-full h-full' />
+          </div>
         </div>
         <div className={styles.mid}>
-          <span className='font-semibold'>Beef Minced - {data.count1}</span>
-          <span className='font-semibold'>Beef NY Strip - {data.count2}</span>
-          <span className='font-semibold'>Beef with bones - {data.count3}</span>
-          <span className='font-semibold text-neutral-700 text-xs'>Product Total</span>
-          <span className='font-semibold text-neutral-700 text-xs'>Tax</span>
-          <span className='font-semibold text-neutral-700 text-xs'>Subtotal</span>
+          <span className='font-semibold text-sm'>Beef Minced - {data.count1}</span>
+          <span className='font-semibold text-sm'>Beef NY Strip - {data.count2}</span>
+          <span className='font-semibold text-sm'>Beef with bones - {data.count3}</span>
+          <div className="flex flex-col w-full h-20">
+            <span className='font-semibold text-neutral-700 text-xs'>Product Total</span>
+            <span className='font-semibold text-neutral-700 text-xs'>Tax</span>
+            <span className='font-semibold text-neutral-700 text-xs'>Subtotal</span>
+          </div>
         </div>
         <div className={styles.right}>
           <div className="w-full h-1/2 flex justify-center items-center">
@@ -93,10 +102,10 @@ function CheckOut() {
               <AddIcon color='primary' />
             </div>
           </div>
-          <div className="w-full h-1/2 flex flex-col justify-around items-start mt-0.5">
-            <span className='font-semibold text-neutral-700 text-xs mt-4'>{totalCost}$</span>
-            <span className='font-semibold text-neutral-700 text-xs'>2% = {taxAmount}</span>
-            <span className='font-semibold text-neutral-700 text-xs'>{finalAmount}$</span>
+          <div className="w-full h-20 flex flex-col justify-around items-start mt-0.5">
+            <span className='font-semibold text-neutral-700 text-xs mt-4'>{TotalCost}$</span>
+            <span className='font-semibold text-neutral-700 text-xs'>2% = {TaxAmount}</span>
+            <span className='font-semibold text-neutral-700 text-xs'>{FinalAmount}$</span>
           </div>
         </div>
       </div>
