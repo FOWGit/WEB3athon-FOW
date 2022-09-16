@@ -36,7 +36,7 @@ function name() {
     btn: `p-2 w-10/12 text-xs`,
     small: ``,
     left: `w-9/12 h-full flex justify-around items-center ml-2`,
-    box: `w-24 h-5/6 rounded-xl bg-white`,
+    box: `w-24 h-5/6 rounded-xl bg-transparent flex justify-center items-center`,
     right: `w-28 h-10 bg-white rounded-xl mr-2 flex justify-between items-center p-2`,
     bellow: `flex flex-col justify-between items-center mb-2 w-10/12 max-w-screen-sm`,
   }
@@ -49,6 +49,9 @@ function name() {
             <ArrowBackIcon color='primary' fontSize='large' />
           </div>
         </Link>
+        <div className="w-20 h-20 rounded-full">
+          <img src='/images/cow.png' className='w-full h-full rounded-full' />
+        </div>
         <div className="">
           <span className='font-semibold'>{router.query.name}</span>
         </div>
@@ -65,8 +68,10 @@ function name() {
         </div>
         <div className={styles.products}>
           <div className={styles.left}>
-            <div className={styles.box}></div>
-            <div className="flex flex-col h-full justify-around items-start ml-1">
+            <div className={styles.box}>
+              <img src="/images/withbones.png" className='w-full h-full' />
+            </div>
+            <div className="flex flex-col h-full justify-around items-start ml-1 w-20 max-w-36">
               <span className='text-sm font-semibold'>Beef with bones</span>
               <span className='font-semibold text-gray-500 text-xs'>0.12 $$</span>
               <span className='font-semibold text-gray-500 text-xs'>Lbs</span>
@@ -80,8 +85,10 @@ function name() {
         </div>
         <div className={styles.products}>
         <div className={styles.left}>
-          <div className={styles.box}></div>
-            <div className="flex flex-col h-full justify-around items-start ml-1">
+          <div className={styles.box}>
+            <img src="/images/nystrip.png" className='w-full h-full' />
+          </div>
+            <div className="flex flex-col h-full justify-around items-start ml-1 w-20 max-w-36">
               <span className='text-sm font-semibold'>Beef NY Strip</span>
               <span className='font-semibold text-gray-500 text-xs'>0.34 $$</span>
               <span className='font-semibold text-gray-500 text-xs'>Lbs</span>
@@ -95,8 +102,10 @@ function name() {
         </div>
         <div className={styles.products}>
         <div className={styles.left}>
-          <div className={styles.box}></div>
-            <div className="flex flex-col h-full justify-around items-start ml-1">
+          <div className={styles.box}>
+            <img src="/images/minced.png" className='w-full h-full' />
+          </div>
+            <div className="flex flex-col h-full justify-around items-start ml-1 w-20 max-w-36">
               <span className='text-sm font-semibold'>Beef Minced</span>
               <span className='font-semibold text-gray-500 text-xs'>0.56 $$</span>
               <span className='font-semibold text-gray-500 text-xs'>Lbs</span>
