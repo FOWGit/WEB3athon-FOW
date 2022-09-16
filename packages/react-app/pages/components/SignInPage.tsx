@@ -44,7 +44,9 @@ function SignInPage() {
   return (
     <div className={styles.page}>
       <div className={styles.top}>
-        <span className=''>FOW[logo]</span>
+        <div className='w-32 h-32 rounded-full'>
+          <img src="/images/fow.png" className='w-full h-full rounded-full' />
+        </div>
       </div>
       <div className={styles.middle}>
         <div className={styles.emailBox}>
