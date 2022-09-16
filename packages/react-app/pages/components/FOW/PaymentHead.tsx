@@ -28,16 +28,12 @@ function PaymentHead() {
         </div>
       </div>
       <div className={styles.bottom}>
-        <Link href="/components/FOW/Payments/Fiat">
-          <div className="active:border-transparent active:border-b-sky-600 active:border-4 rounded-md">
-            <span>Fiat</span>
-          </div>
-        </Link>
-        <Link href="/components/FOW/Payments/Crypto">
-          <div className="active:border-transparent active:border-b-sky-600 active:border-4 rounded-md">
-            <span>Crypto</span>
-          </div>
-        </Link>
+        <div className="active:border-transparent active:border-b-sky-600 active:border-4 rounded-md">
+          <span>Fiat</span>
+        </div>
+        <div className="active:border-transparent active:border-b-sky-600 active:border-4 rounded-md">
+          <span>Crypto</span>
+        </div>
       </div>
     </div>
   )
