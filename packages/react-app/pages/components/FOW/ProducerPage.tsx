@@ -5,7 +5,11 @@ import Link from 'next/link';
 
 function ProducerPage() {
 
-  const [active, setActive] = useState(false)
+  // const data = {
+  //   img1: "/images/farm1.png",
+  //   img2: "/images/farm2.png",
+  //   img3: "/images/farm3.png",
+  // }
 
   const styles = {
     fullPage: `w-screen h-screen flex flex-col justify-between items-center`,
@@ -19,8 +23,8 @@ function ProducerPage() {
     opt: `w-1/3 flex justify-center items-center bg-slate-300/[.9] shadow-2xl border-white-900/75`,
     btn_txt: `text-xs p-1 sm:p-3`,
     btn: `bg-slate-300/[.9] border-white-900/75 h-full w-full`,
-    round_bg: `border-2 border-sky-600 w-24 h-24 rounded-full`,
-    round: `w-full h-full rounded-full`,
+    round_bg: `w-24 h-24 rounded-full flex justify-center items-center`,
+    round: `w-full h-full rounded-full flex justify-center items-center`,
     circle_bg: `w-24 h-full flex flex-col justify-center items-center`,
     left: `w-4/6 h-full flex flex-col justify-center items-start`,
     // hamburgerActive: `relative w-4/5 h-screen mt-auto transition delay-100 duration-700 ease-in-out origin-top-left bg-sky-600 translate-y-0 rounded-xs`
@@ -73,29 +77,40 @@ function ProducerPage() {
         <div className="w-full h-full flex justify-around items-start">
           <div className={styles.circle_bg}>
             <div className={styles.round_bg}>
-              <div className={styles.round}></div>
+              <div className={styles.round}>
+                <img src="/images/all.png" className='w-full h-full rounded-full' />
+              </div>
             </div>
             <span>All</span>
           </div>
           <div className={styles.circle_bg}>
             <div className={styles.round_bg}>
-              <div className={styles.round}></div>
+              <div className={styles.round}>
+                <img src="/images/produce.png" className='w-full h-full rounded-full' />
+              </div>
             </div>
             <span>Produce</span>
           </div>
           <div className={styles.circle_bg}>
             <div className={styles.round_bg}>
-              <div className={styles.round}></div>
+              <div className={styles.round}>
+                <img src="/images/meat.png" className='w-full rounded-full' />
+              </div>
             </div>
             <span>Meat</span>
           </div>
         </div>
       </div>
-      <Link href="/components/FOW/Farm/John Doe Farm">
+      <Link href={{
+        pathname: "/components/FOW/Farm/John Doe Farm",
+        query: {img: "/images/farm1.png"},
+      }}>
         <div className={styles.farm}>
           <div className="">
             <div className={styles.round_bg}>
-              <div className={styles.round}></div>
+              <div className={styles.round}>
+                <img src="/images/farm1.png" className='w-full rounded-full' />
+              </div>
             </div>
           </div>
           <div className={styles.left}>
@@ -106,11 +121,16 @@ function ProducerPage() {
           </div>
         </div>
       </Link>
-      <Link href="/components/FOW/Farm/Web3.0 Farm">
+      <Link href={{
+        pathname: "/components/FOW/Farm/Web3.0 Farm",
+        query: {img: "/images/farm2.png"}
+      }}>
         <div className={styles.farm}>
           <div className="">
             <div className={styles.round_bg}>
-              <div className={styles.round}></div>
+              <div className={styles.round}>
+                <img src="/images/farm2.png" className='w-full rounded-full' />
+              </div>
             </div>
           </div>
           <div className={styles.left}>
@@ -121,11 +141,16 @@ function ProducerPage() {
           </div>
         </div>
       </Link>
-      <Link href="/components/FOW/Farm/Farmtopia">
+      <Link href={{
+        pathname: "/components/FOW/Farm/Farmtopia",
+        query: {img: "/images/farm3.png"}
+      }}>
         <div className={styles.farm}>
         <div className="">
             <div className={styles.round_bg}>
-              <div className={styles.round}></div>
+              <div className={styles.round}>
+                <img src="/images/farm3.png" className='w-full rounded-full' />
+              </div>
             </div>
           </div>
           <div className={styles.left}>
