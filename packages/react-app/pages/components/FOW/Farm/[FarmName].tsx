@@ -31,7 +31,7 @@ function FarmName() {
             </div>
           </Link>
           <div className={styles.round}>
-            <img src={router.query.img} className='w-full h-full rounded-full' />
+            <img src={`${router.query.img}`} className='w-full h-full rounded-full' />
           </div>
           <div className="font-semibold">
             {router.query.FarmName}
