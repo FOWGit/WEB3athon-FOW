@@ -74,11 +74,9 @@ function Crypto() {
         console.log("usd: ", !click ? usdAmount : Number(usdAmount) + donationAmount,
                      "celo: ", !click ? celoAmount : Number(celoAmount) + donationInCelo)
 
-        // await contract.send({ value: ethers.utils.parseEther(`${celoAmount}`) })
-
-        // await contract.send({ value: ethers.utils.parseEther(`${!click ? celoAmount : Number(celoAmount) + donationInCelo}`) })
+        await contract.send({ value: ethers.utils.parseEther(`${!click ? celoAmount : Number(celoAmount) + donationInCelo}`) })
         
-        // await window.location.replace(`/components/FOW/PaymentComplete?finalAmount=${usdAmount}`)
+        await window.location.replace(`/components/FOW/PaymentComplete?finalAmount=${!click ? usdAmount : Number(usdAmount) + donationAmount}`)
       }
     } catch (error) {
       console.log("send CELO error: ", error)
@@ -98,7 +96,7 @@ function Crypto() {
     donateBox: `w-11/12 h-64 mt-2 mb-2 flex flex-col justify-between items-center`,
     donationPlace: `w-full h-28 flex justify-between items-center`,
     place: `w-20 h-full flex-col justify-center items-center`,
-    placeImg: `w-full h-20 flex justify-center items-center`,
+    placeImg: `w-full h-20 flex justify-center items-center focus:border-2 focus:border-sky-700 focus:rounded-xl`,
     donationbtn: `w-3/12 h-full rounded-3xl flex justify-center items-center text-white focus:bg-white focus:text-sky-600`,
   }
 
@@ -149,22 +147,22 @@ function Crypto() {
             </div>
             <div className={styles.donationPlace}>
               <div className={styles.place}>
-                <div className={styles.placeImg}>
-                  <img src='/images/donatefood.png' className='w-full h-full' />
-                </div>
-                <span className='font-semibold text-xs text-gray-500 flex justify-center items-center'>Food Farm</span>
-              </div>
-              <div className={styles.place}>
-                <div className={styles.placeImg}>
-                  <img src='/images/donate2.png' className='w-full h-full' />
-                </div>
-                <span className='font-semibold text-xs text-gray-500 flex justify-center items-center'>community Food Bank</span>
-              </div>
-              <div className={styles.place}>
-                <div className={styles.placeImg}>
-                  <img src='/images/donate3.png' className='w-full h-full' />
-                </div>
+                <button className={styles.placeImg}>
+                  <img src='/images/foodbank.png' className='w-full h-full' />
+                </button>
                 <span className='font-semibold text-xs text-gray-500 flex justify-center items-center'>Food Bank</span>
+              </div>
+              <div className={styles.place}>
+                <button className={styles.placeImg}>
+                  <img src='/images/meals.png' className='w-full h-full' />
+                </button>
+                <span className='font-semibold text-xs text-gray-500 flex justify-center items-center'>Meals on Wheels</span>
+              </div>
+              <div className={styles.place}>
+                <button className={styles.placeImg}>
+                  <img src='/images/underTheBridge.png' className='w-max h-max' />
+                </button>
+                <span className='font-semibold text-xs text-gray-500 flex justify-center items-center'>Under the Bridge</span>
               </div>
             </div>
             <div className="w-full h-12 rounded-3xl flex bg-sky-600 p-0.5 mb-1">
