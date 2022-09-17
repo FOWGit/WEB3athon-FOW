@@ -11,6 +11,10 @@ function Additional() {
 
   const Submit = async () => {
     try {
+
+      if (typeof window.ethereum !== 'undefined') {
+        window.ethereum.request({ method: 'eth_requestAccounts' });
+      }
       console.log(walletAddr)
     } catch (error) {
       console.log(error)
