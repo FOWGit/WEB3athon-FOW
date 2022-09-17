@@ -13,8 +13,9 @@ function Additional() {
     try {
 
       if (typeof window.ethereum !== 'undefined') {
-        window.ethereum.request({ method: 'eth_requestAccounts' });
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
       }
+
       console.log(walletAddr)
     } catch (error) {
       console.log(error)
