@@ -38,19 +38,21 @@ function Crypto() {
 
   const data = router.query
 
+  let UsdAmount = Number(data.finalAmount)
 
-  let usdAmount = Number(data.finalAmount)
+  let usdAmount = UsdAmount
 
 
-  const celoAmount = usdAmount * 1.25
+  let celoAmount = usdAmount * 1.25
+
+  const donationInCelo = donationAmount * 1.25
 
   const donate = () => {
 
-    // usdAmount = usdAmount + donationAmount
+    usdAmount = usdAmount + donationAmount
+    celoAmount = donationInCelo + celoAmount
 
-    // usdAmount += donationAmount
-
-    console.log(donationAmount)
+    console.log(usdAmount)
     setClick(true)
 
   }
@@ -68,11 +70,15 @@ function Crypto() {
         const abi = ABI.abi
         const contract = new ethers.Contract(deployAddress, abi, signer)
         const owner = await contract.owner()
-        console.log("owner of this contract is: ", owner, celoAmount)
 
-        await contract.send({ value: ethers.utils.parseEther(`${celoAmount}`) })
+        console.log("usd: ", !click ? usdAmount : Number(usdAmount) + donationAmount,
+                     "celo: ", !click ? celoAmount : Number(celoAmount) + donationInCelo)
+
+        // await contract.send({ value: ethers.utils.parseEther(`${celoAmount}`) })
+
+        // await contract.send({ value: ethers.utils.parseEther(`${!click ? celoAmount : Number(celoAmount) + donationInCelo}`) })
         
-        await window.location.replace(`/components/FOW/PaymentComplete?finalAmount=${usdAmount}`)
+        // await window.location.replace(`/components/FOW/PaymentComplete?finalAmount=${usdAmount}`)
       }
     } catch (error) {
       console.log("send CELO error: ", error)
@@ -87,7 +93,7 @@ function Crypto() {
     btn: `w-11/12 h-1/6 mt-5 mb-1.5`,
     addr: `w-10/12 h-10 bg-white rounded-xl p-2 flex justify-between items-center`,
     smallBox: `bg-white rounded-md w-11/12 h-10 ml-1 text-xs flex justify-center items-center font-semibold text-gray-500`,
-    box: `rounded-xl w-20 h-20 bg-transparent flex items-center justify-center`,
+    box: `rounded-xl w-20 h-20 bg-transparent flex items-center justify-center focus:border-2 focus:border-sky-700`,
     boxHold: `w-8/12 flex justify-between items-center max-w-11/12 p-1`,
     donateBox: `w-11/12 h-64 mt-2 mb-2 flex flex-col justify-between items-center`,
     donationPlace: `w-full h-28 flex justify-between items-center`,
@@ -106,27 +112,34 @@ function Crypto() {
               <div className="rounded-full w-16 h-8">
                 <img src="/images/Metamask.png" className='w-full h-full rounded-full'/>
               </div>
-              <span className='font-semibold text-gray-500 text-sm p-2'>{walletAddress.slice(0, 5)}....{walletAddress.slice(38, 42)}</span>
+              <span className='font-semibold text-gray-500 text-sm p-2'>
+                {walletAddress.slice(0, 5)}....{walletAddress.slice(38, 42)}
+              </span>
               <div className="w-12 h-12">
                 <img src="/images/qr-code.png" className='w-full h-full' />
               </div>
             </div>
             <div className={styles.boxHold}>
               <img src="/images/celo-logo.png" className='w-10 h-10'/>
-              <div className={styles.smallBox}>{celoAmount} CELO</div>
+              {/* <div className={styles.smallBox}>{celoAmount} CELO</div> */}
+              <div className={styles.smallBox}>
+                {!click ? celoAmount : Number(celoAmount) + donationInCelo} CELO
+              </div>
             </div>
 
             <div className={styles.boxHold}>
               <img src="/images/cusd.png" className='w-10 h-10'/>
-              <div className={styles.smallBox}>{celoAmount} CUSD</div>
+              <div className={styles.smallBox}>
+                {!click ? usdAmount : Number(usdAmount) + donationAmount} CUSD
+              </div>
             </div>
 
             <div className={styles.boxHold}>
               <span className='font-semibold text-gray-500'>USD</span>
-              <div className={styles.smallBox}>{usdAmount} USD</div>
-              {/* <div className={styles.smallBox}>
-                {donationAmount === 0 ? usdAmount : Number(usdAmount) + donationAmount} USD
-              </div> */}
+              {/* <div className={styles.smallBox}>{usdAmount} USD</div> */}
+              <div className={styles.smallBox}>
+                {!click ? usdAmount : Number(usdAmount) + donationAmount} USD
+              </div>
             </div>
           </div>
 
@@ -181,27 +194,27 @@ function Crypto() {
           </div>
           <div className="w-11/12 h-5/6 flex justify-between items-center">
             <div className="flex flex-col w-1/4 h-full items-center justify-center">
-              <div className={styles.box}>
+              <button className={styles.box}>
                 <img src="/images/cycle.png" className='w-full h-full' />
-              </div>
-              <span className='font-semibold text-sm'>Low</span>
+              </button>
+              <span className='font-semibold text-xs text-gray-500 flex justify-center items-center'>I need it sometime this week</span>
             </div>
             <div className="flex flex-col w-1/4 h-full items-center justify-center">
-              <div className={styles.box}>
+              <button className={styles.box}>
               <img src="/images/bike.png" className='w-full h-full' />
-              </div>
-              <span className='font-semibold text-sm'>Normal</span>
+              </button>
+              <span className='font-semibold text-xs text-gray-500 flex justify-center items-center'>I need it some time today</span>
             </div>
-            <div className="flex flex-col w-1/4 h-full items-center justify-center ">
-              <div className={styles.box}>
+            <div className="flex flex-col w-1/4 h-full items-center justify-center">
+              <button className={styles.box}>
                 <img src="/images/car.png" className='w-full h-full' />
-              </div>
-              <span className='font-semibold text-sm'>High</span>
+              </button>
+              <span className='font-semibold text-xs text-gray-500 flex justify-center items-center'>I need it now</span>
             </div>
           </div>
         </div>
         <div className={styles.btn}>
-          <span className='font-semibold'>Fees: {usdAmount}$</span>
+          <span className='font-semibold'>Fees: {!click ? usdAmount : Number(usdAmount) + donationAmount}$</span>
           <div className="w-full flex justify-center items-center">
             <Button variant="contained" className='p-2 w-11/12' onClick={sendCELO}>Send</Button>
           </div>
