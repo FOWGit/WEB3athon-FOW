@@ -74,7 +74,9 @@ function SignInPage() {
           <span className='text-slate-500'>Or continue with</span>
         </div>
         <div className={styles.appleBox}>
-          <Button variant="contained" className={styles.apple}>Sign In With Apple</Button>
+          <Link href='/components/FOW/Signup'>
+            <Button variant="contained" className={styles.apple}>Sign In With Email</Button>
+          </Link>
         </div>
         <div className={styles.two}>
           <div className={styles.facebookBox}>
