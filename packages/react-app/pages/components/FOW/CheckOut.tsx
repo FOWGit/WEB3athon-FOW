@@ -36,7 +36,7 @@ function CheckOut() {
     btn: `w-11/12 h-20 rounded-xl flex justify-center items-center max-w-screen-sm`,
     sub_nav: `w-full h-10 flex justify-around items-center`,
     inputs: `w-11/12 h-4/5 flex flex-col justify-around items-center mb-3`,
-    input: `bg-transparent focus:outline-none ml-2`,
+    input: `bg-transparent focus:outline-none p-1 w-full h-full rounded-xl`,
     left: `w-1/3 h-5/6 flex justify-center`,
     mid: `w-1/3 h-full flex flex-col justify-around items-start`,
     right: `w-1/3 h-full`,
