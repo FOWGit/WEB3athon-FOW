@@ -15,7 +15,7 @@ function CheckOut() {
 
   const data = router.query
 
-  const totalCost = Number(data.count1)*0.12 + Number(data.count2)*0.34 + Number(data.count3)*0.56
+  const totalCost = Number(data.count1)*Number(data.price1) + Number(data.count2)*Number(data.price2) + Number(data.count3)*Number(data.price3)
   const TotalCost = Math.round((totalCost + Number.EPSILON) * 100)/100
 
   const taxAmount = (totalCost * 2) /100
@@ -46,11 +46,11 @@ function CheckOut() {
   return (
     <div className={styles.page}>
       <div className={styles.nav}>
-        <Link href="/components/FOW/order/Meat">
+        {/* <Link href="/components/FOW/order/Beef"> */}
           <div className="mr-3">
-            <ArrowBackIcon color='primary' fontSize='large' />
+            <ArrowBackIcon onClick={() => router.back()} color='primary' fontSize='large' />
           </div>
-        </Link>
+        {/* </Link> */}
         <div className="">
           <span>Checkout</span>
         </div>
@@ -85,9 +85,9 @@ function CheckOut() {
           </div>
         </div>
         <div className={styles.mid}>
-          <span className='font-semibold text-sm'>Beef Minced - {data.count1}</span>
-          <span className='font-semibold text-sm'>Beef NY Strip - {data.count2}</span>
-          <span className='font-semibold text-sm'>Beef with bones - {data.count3}</span>
+          <span className='font-semibold text-xs'>{data.dish1} - {data.count1}</span>
+          <span className='font-semibold text-xs'>{data.dish2} - {data.count2}</span>
+          <span className='font-semibold text-xs'>{data.dish3} - {data.count3}</span>
           <div className="flex flex-col w-full h-20">
             <span className='font-semibold text-neutral-700 text-xs'>Product Total</span>
             <span className='font-semibold text-neutral-700 text-xs'>Tax</span>
