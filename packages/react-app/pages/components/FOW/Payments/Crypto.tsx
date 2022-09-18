@@ -15,6 +15,7 @@ function Crypto() {
   const [walletAddress, setWalletAddress] = useState('')
   const [donationAmount, setDonationAmount] = useState(0)
   const [click, setClick] = useState(false)
+  const [disabled, setDisabled] = useState(false)
 
   const getAddress = async () => {
     try {
@@ -73,6 +74,8 @@ function Crypto() {
 
         console.log("usd: ", !click ? usdAmount : Number(usdAmount) + donationAmount,
                      "celo: ", !click ? celoAmount : Number(celoAmount) + donationInCelo)
+
+        setDisabled(true)
 
         await contract.send({ value: ethers.utils.parseEther(`${!click ? celoAmount : Number(celoAmount) + donationInCelo}`) })
         
@@ -214,7 +217,7 @@ function Crypto() {
         <div className={styles.btn}>
           <span className='font-semibold'>Fees: {!click ? usdAmount : Number(usdAmount) + donationAmount}$</span>
           <div className="w-full flex justify-center items-center">
-            <Button variant="contained" className='p-2 w-11/12' onClick={sendCELO}>Send</Button>
+            <Button variant="contained" disabled={disabled} className='p-2 w-11/12 focus:bg-sky-500' onClick={sendCELO}>Send</Button>
           </div>
         </div>
       </div>
