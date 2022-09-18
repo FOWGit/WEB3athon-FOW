@@ -17,7 +17,7 @@ function FarmName() {
     row: `w-11/12 h-1/6 bg-slate-300/[.9] shadow-xl border-white-900/75 flex flex-col justify-between items-center p-1 rounded-md max-w-screen-sm`,
     inner: `w-11/12 h-4/6 rounded-2xl mb-1 bg-white flex justify-between items-center`,
     round: `w-24 h-24 rounded-full flex justify-center items-center`,
-    circle: `w-16 h-16 rounded-full flex justify-center items-center`,
+    circle: `w-16 h-16 rounded-full flex justify-center items-center hover:border-4 hover:border-sky-700`,
     img: `w-full h-full rounded-full`,
   }
 
@@ -45,18 +45,18 @@ function FarmName() {
         <div className={styles.row}>
           <span className='mr-auto font-semibold text-sm ml-2'>Meat</span>
           <div className={styles.inner}>
-            <div className={styles.circle}>
+            <button className={styles.circle}>
               <img src="/images/cow.png" className={styles.img} />
-            </div>
-            <div className={styles.circle}>
+            </button>
+            <button className={styles.circle}>
               <img src="/images/chicken.png" className={styles.img} />
-            </div>
-            <div className={styles.circle}>
+            </button>
+            <button className={styles.circle}>
               <img src="/images/goatpng.png" className={styles.img} />
-            </div>
-            <div className={styles.circle}>
+            </button>
+            <button className={styles.circle}>
               <img src="/images/lamb.png" className={styles.img} />
-            </div>
+            </button>
           </div>
         </div>
       </Link>
@@ -64,18 +64,18 @@ function FarmName() {
         <div className={styles.row}>
           <span className='mr-auto font-semibold text-sm ml-2'>Produce</span>
           <div className={styles.inner}>
-            <div className={styles.circle}>
+            <button className={styles.circle}>
               <img src="/images/cow.png" className={styles.img} />
-            </div>
-            <div className={styles.circle}>
+            </button>
+            <button className={styles.circle}>
               <img src="/images/chicken.png" className={styles.img} />
-            </div>
-            <div className={styles.circle}>
+            </button>
+            <button className={styles.circle}>
               <img src="/images/goatpng.png" className={styles.img} />
-            </div>
-            <div className={styles.circle}>
+            </button>
+            <button className={styles.circle}>
               <img src="/images/lamb.png" className={styles.img} />
-            </div>
+            </button>
           </div>
         </div>
       </Link>
