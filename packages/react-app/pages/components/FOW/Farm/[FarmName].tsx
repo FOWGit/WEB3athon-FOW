@@ -25,11 +25,11 @@ function FarmName() {
     <div className={styles.page}>
       <div className={styles.nav}>
         <div className={styles.left}>
-          <Link href="/components/FOW/ProducerPage">
+          {/* <Link href="/components/FOW/ProducerPage"> */}
             <div className="">
-              <ArrowBackIcon color='primary' fontSize='large' />
+              <ArrowBackIcon onClick={() => router.back()} color='primary' fontSize='large' />
             </div>
-          </Link>
+          {/* </Link> */}
           <div className={styles.round}>
             <img src={`${router.query.img}`} className='w-full h-full rounded-full' />
           </div>
@@ -41,44 +41,60 @@ function FarmName() {
           <SearchIcon color='primary' fontSize='large' />
         </div>
       </div>
-      <Link href="/components/FOW/order/Meat">
+      {/* <Link href="/components/FOW/order/Meat"> */}
         <div className={styles.row}>
           <span className='mr-auto font-semibold text-sm ml-2'>Meat</span>
           <div className={styles.inner}>
-            <button className={styles.circle}>
-              <img src="/images/cow.png" className={styles.img} />
-            </button>
-            <button className={styles.circle}>
-              <img src="/images/chicken.png" className={styles.img} />
-            </button>
-            <button className={styles.circle}>
-              <img src="/images/goatpng.png" className={styles.img} />
-            </button>
-            <button className={styles.circle}>
-              <img src="/images/lamb.png" className={styles.img} />
-            </button>
+            <Link href="/components/FOW/order/Beef">
+              <button className={styles.circle}>
+                <img src="/images/cow.png" className={styles.img} />
+              </button>
+            </Link>
+            <Link href="/components/FOW/order/Chicken">
+              <button className={styles.circle}>
+                <img src="/images/chicken.png" className={styles.img} />
+              </button>
+            </Link>
+            <Link href="/components/FOW/order/Goat">
+              <button className={styles.circle}>
+                <img src="/images/goatpng.png" className={styles.img} />
+              </button>
+            </Link>
+            <Link href="/components/FOW/order/Lamb">
+              <button className={styles.circle}>
+                <img src="/images/lamb.png" className={styles.img} />
+              </button>
+            </Link>
           </div>
         </div>
-      </Link>
-      <Link href="/components/FOW/order/Produce">
+      {/* </Link> */}
+      {/* <Link href="/components/FOW/order/Produce"> */}
         <div className={styles.row}>
           <span className='mr-auto font-semibold text-sm ml-2'>Produce</span>
           <div className={styles.inner}>
-            <button className={styles.circle}>
-              <img src="/images/cow.png" className={styles.img} />
-            </button>
-            <button className={styles.circle}>
-              <img src="/images/chicken.png" className={styles.img} />
-            </button>
-            <button className={styles.circle}>
-              <img src="/images/goatpng.png" className={styles.img} />
-            </button>
-            <button className={styles.circle}>
-              <img src="/images/lamb.png" className={styles.img} />
-            </button>
+            <Link href="/components/FOW/order/Beef">
+              <button className={styles.circle}>
+                <img src="/images/cow.png" className={styles.img} />
+              </button>
+            </Link>
+            <Link href="/components/FOW/order/Chicken">
+              <button className={styles.circle}>
+                <img src="/images/chicken.png" className={styles.img} />
+              </button>
+            </Link>
+            <Link href="/components/FOW/order/Goat">
+              <button className={styles.circle}>
+                <img src="/images/goatpng.png" className={styles.img} />
+              </button>
+            </Link>
+            <Link href="/components/FOW/order/Lamb">
+              <button className={styles.circle}>
+                <img src="/images/lamb.png" className={styles.img} />
+              </button>
+            </Link>
           </div>
         </div>
-      </Link>
+      {/* </Link> */}
       <div className="bg-slate-300/[.9] shadow-xl border-white-900/75 p-2 rounded-2xl mb-3">
         <span className='text-sm'>Minimum Order $$</span>
       </div>
