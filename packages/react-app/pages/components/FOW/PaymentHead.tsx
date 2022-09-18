@@ -2,8 +2,12 @@ import Link from 'next/link'
 import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useRouter } from 'next/router'
+
 
 function PaymentHead() {
+
+  const route = useRouter()
 
   const styles = {
     page: `w-screen h-36 flex flex-col items-center`,
@@ -15,11 +19,11 @@ function PaymentHead() {
   return (
     <div className={styles.page}>
       <div className={styles.nav}>
-        <Link href="/components/FOW/CheckOut">
+        {/* <Link href="/components/FOW/CheckOut"> */}
           <div className="mr-3">
-            <ArrowBackIcon color='primary' fontSize='large' />
+            <ArrowBackIcon onClick={() => route.back()} color='primary' fontSize='large' />
           </div>
-        </Link>
+        {/* </Link> */}
         <div className="">
           <span>Payment</span>
         </div>
