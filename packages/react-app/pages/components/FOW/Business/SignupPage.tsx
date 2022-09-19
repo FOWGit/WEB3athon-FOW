@@ -5,6 +5,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import Button from '@mui/material/Button';
 import FoundationIcon from '@mui/icons-material/Foundation';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 
 
 function SignupPage() {
@@ -59,7 +60,7 @@ function SignupPage() {
       </div>
       <div className={styles.inputBox}>
         <div className={styles.text}>
-          <span className='text-xl text-slate-400 font-semibold	'>Sign up to Business!</span>
+          <span className='text-xl text-slate-400 font-semibold	flex justify-center items-center'>Sign up to Business! <BusinessCenterIcon/></span>
         </div>
         <div className={styles.nameBox}>
           <PersonIcon color='primary' fontSize='large' />
