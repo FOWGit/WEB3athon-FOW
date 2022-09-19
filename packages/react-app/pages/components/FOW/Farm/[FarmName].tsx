@@ -72,24 +72,24 @@ function FarmName() {
         <div className={styles.row}>
           <span className='mr-auto font-semibold text-sm ml-2'>Produce</span>
           <div className={styles.inner}>
-            <Link href="/components/FOW/order/Beef">
+            <Link href="/components/FOW/produce/potato">
               <button className={styles.circle}>
-                <img src="/images/cow.png" className={styles.img} />
+                <img src="/images/potato.png" className={styles.img} />
               </button>
             </Link>
-            <Link href="/components/FOW/order/Chicken">
+            <Link href="/components/FOW/produce/berries">
               <button className={styles.circle}>
-                <img src="/images/chicken.png" className={styles.img} />
+                <img src="/images/berrie.png" className={styles.img} />
               </button>
             </Link>
-            <Link href="/components/FOW/order/Goat">
+            <Link href="/components/FOW/produce/rice">
               <button className={styles.circle}>
-                <img src="/images/goatpng.png" className={styles.img} />
+                <img src="/images/rice.png" className={styles.img} />
               </button>
             </Link>
-            <Link href="/components/FOW/order/Lamb">
+            <Link href="/components/FOW/produce/nuts">
               <button className={styles.circle}>
-                <img src="/images/lamb.png" className={styles.img} />
+                <img src="/images/nuts.png" className={styles.img} />
               </button>
             </Link>
           </div>
