@@ -53,7 +53,7 @@ function Additional() {
       <div className={styles.space}>
         <span> </span>
       </div>
-      <Link href="/components/FOW/ProducerPage">
+      <Link href="/components/FOW/Option">
         <div className="w-10/12 max-w-md mb-5">
           <Button variant="contained" className={styles.submit} onClick={Submit}>Submit</Button>
         </div>
