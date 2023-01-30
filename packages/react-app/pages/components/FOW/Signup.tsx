@@ -4,22 +4,40 @@ import Link from 'next/link';
 import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import Button from '@mui/material/Button';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import axios from 'axios';
 
 
 function Signup() {
+  const URL = `https://fow-api-production.up.railway.app/api/v1/user/signup`
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [countryCode, setCountryCode] = useState('')
-  const [phone, setPhone] = useState('')
+  const [password, setPassword] = useState('')
+  const [passwordConfirm, setPasswordConfirm] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+
+  const handleShowPassword = () => setShowPassword(!showPassword)
 
   const Continue = async () => {
     try {
-      console.log(name)
-      console.log(email)
-      console.log(countryCode+' '+phone)
+      if(password !== passwordConfirm) {
+        alert("Your Passwords not matched")
+        return
+      }
+
+      const response = await axios.post(URL, { 
+        name: name, 
+        email: email, 
+        password: password, 
+        passwordConfirm: passwordConfirm 
+      })
+
+      let token = response.data.token
+      console.log("response: ", token)
     } catch (error) {
-      console.log(error)
+      alert(`${error.response.data.message}`)
     }
   }
 
@@ -42,7 +60,8 @@ function Signup() {
     app: `w-14`,
     smallText: ``,
     login: `w-screen h-14 flex justify-center items-center bg-sky-400 cursor-pointer hover:bg-sky-500 active:bg-sky-600`,
-    logo: `bg-slate-300/[.4] shadow-2xl border-white-900/75 rounded-full cursor-pointer`
+    logo: `bg-slate-300/[.4] shadow-2xl border-white-900/75 rounded-full cursor-pointer`,
+    passwordBox: `w-full flex justify-between bg-slate-300/[.9] shadow-2xl border-white-900/75 p-2 rounded-md max-w-sm`,
   }
   return (
     <div className={styles.fullPage}>
@@ -63,19 +82,24 @@ function Signup() {
           <EmailIcon color='primary' fontSize='large' />
           <input type="email" placeholder='johndoe@gmail.com' className={styles.email} onChange={(e) => setEmail(e.target.value)} value={email} />
         </div>
-        <div className={styles.telephone}>
-          <div className={styles.leftNum}>
-            <input type="number" placeholder='+1' className='w-full focus:outline-none ml-3 text-sm font-semibold bg-slate-300/[.0] shadow-2xl' onChange={(e) => setCountryCode(e.target.value)} value={countryCode} />
-          </div>
-          <div className={styles.rightNum}>
-            <input type="tel" placeholder='Your Phone' className='w-full focus:outline-none text-sm font-semibold bg-slate-300/[.0] shadow-2xl' onChange={(e) => setPhone(e.target.value)} value={phone}/>
-          </div>
+        <div className={styles.passwordBox}>
+          {
+            showPassword ?
+            <VisibilityOffIcon onClick={handleShowPassword} color='primary' fontSize='large' /> :
+            <VisibilityIcon onClick={handleShowPassword} color='primary' fontSize='large' /> 
+          }
+          <input type={showPassword ? "password" : "text"} placeholder='Password*' className={styles.email} onChange={(e) => setPassword(e.target.value)} />
+        </div>
+
+        <div className={styles.passwordBox}>
+          <VisibilityOffIcon color='primary' fontSize='large' />
+          <input type="password" placeholder='Password Confirm*' className={styles.email} onChange={(e) => setPasswordConfirm(e.target.value)} />
         </div>
       </div>
       <div className={styles.bottom}>
         <div className={styles.continueBox}>
-          <Link href="/components/FOW/Additional">
-            <Button variant="contained" className={styles.continue} onClick={Continue}>Continue</Button>
+          <Link href="/">
+            <Button type='submit' variant="contained" className={styles.continue} onClick={Continue}>Continue</Button>
           </Link>
           <div className="w-10 h-2 rounded-md bg-blue-300 mt-1.5">
             <span> </span>
@@ -93,7 +117,9 @@ function Signup() {
           </div>
         </div>
         <div className={styles.smallText}>
-          <span className='text-sky-700 cursor-pointer'>Already have an account?</span>
+          <Link href="/">
+            <span className='text-sky-700 cursor-pointer'>Already have an account?</span>
+          </Link>
         </div>
       </div>
         <div className={styles.login}>

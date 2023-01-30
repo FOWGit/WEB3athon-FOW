@@ -25,7 +25,7 @@ function Option() {
       </div>
       <div className={styles.btnBox}>
         <div className="flex flex-col">
-        <Link href="/components/FOW/Business/SignupPage">
+        <Link href="/components/FOW/Business/FarmUpload">
           <Button className='mb-5' variant="contained">
             <span className='text-xs'>FOW Business</span>
           </Button>

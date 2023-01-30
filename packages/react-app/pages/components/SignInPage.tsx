@@ -1,18 +1,34 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
+import axios from 'axios';
 
 function SignInPage() {
+  const URL = `https://fow-api-production.up.railway.app/api/v1/user/login`
 
   const [email, setEmail] = useState('')
   const [passwd, setPasswd] = useState('')
+  const [route, setRoute] = useState('')
 
   const Continue = async () => {
     try {
-      console.log(email)
-      console.log(passwd)
+      console.log("email: ", email)
+      console.log("passwd: ", passwd)
+      const response = await axios.post(URL, { email: email, password: passwd })
+
+      const token = response.data.token
+      
+      let expiration = new Date().getTime() + 60 * 60 * 1000  // 1 hour
+      localStorage.setItem("Token", JSON.stringify({ value: `${token}`, expires: expiration }))
+      
+      // let localstorageToken = JSON.parse(localStorage.getItem("Token")).value
+      // window.location.replace("/components/FOW/Additional")
+      setRoute("/components/FOW/Additional")
+
+      console.log("token: ", token)
     } catch (error) {
       console.log(error)
+      alert("Incorrect email & password!!!")
     }
   }
 
@@ -60,7 +76,7 @@ function SignInPage() {
             <span className={styles.signup}>Sign up</span>
           </div>
         </Link>
-        <Link href="/components/FOW/Additional">
+        <Link href={`${route}`}>
           <div className={styles.buttonBox}>
             <Button variant="contained" className={styles.button} onClick={Continue}>Continue</Button>
           </div>
