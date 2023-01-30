@@ -1,6 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { GetStaticProps } from 'next';
 
-function produce({ name, image, price, weight }) {
+export const getStaticProps: GetStaticProps = async(contex) => {
+
+  return {
+    revalidate: 5,
+    props: {
+      image: '',
+      name: '',
+      price: 0,
+      weight: ''
+    }
+  }
+}
+
+function produce(props: any) {
 
   const styles = {
     produceBox: `w-full p-2 flex justify-between rounded-md`,
@@ -13,12 +27,12 @@ function produce({ name, image, price, weight }) {
   return (
     <div className={styles.produceBox}>
       <div className={styles.imageBox}>
-        <img src={`${image}`} className={styles.img} />
+        <img src={`${props.image}`} className={styles.img} />
       </div>
       <div className={styles.aboutBox}>
-        <span className={styles.text}>{name}</span>
-        <span className={styles.text}>{weight}</span>
-        <span className={styles.text}>{price}</span>
+        <span className={styles.text}>{props.name}</span>
+        <span className={styles.text}>{props.weight}</span>
+        <span className={styles.text}>{props.price}</span>
       </div>
     </div>
   )

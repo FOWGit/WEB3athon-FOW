@@ -1,6 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { GetStaticProps } from 'next';
 
-function meat({ image, cuts, name, price, weight }) {
+export const getStaticProps: GetStaticProps = async(contex) => {
+
+  return {
+    revalidate: 5,
+    props: {
+      image: '',
+      cuts: '',
+      name: '',
+      price: 0,
+      weight: ''
+    }
+  }
+}
+
+function meat(props: any) {
 
   const styles = {
     meatBox: `w-full p-2 flex justify-between rounded-md`,
@@ -13,13 +28,13 @@ function meat({ image, cuts, name, price, weight }) {
   return (
     <div className={styles.meatBox}>
       <div className={styles.imageBox}>
-        <img src={`${image}`} className={styles.img} />
+        <img src={`${props.image}`} className={styles.img} />
       </div>
       <div className={styles.aboutBox}>
-        <span className={styles.text}>{name}</span>
-        <span className={styles.smallText}>{cuts}</span>
-        <span className={styles.text}>{weight}</span>
-        <span className={styles.text}>{price}</span>
+        <span className={styles.text}>{props.name}</span>
+        <span className={styles.smallText}>{props.cuts}</span>
+        <span className={styles.text}>{props.weight}</span>
+        <span className={styles.text}>{props.price}</span>
       </div>
     </div>
   )
